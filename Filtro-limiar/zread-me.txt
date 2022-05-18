@@ -1,0 +1,30 @@
+O filtro de limiar (threshold filter) converte uma imagem em tons de cinza em um imagem
+em preto-e-branco (2 cores). A forma mais simples de fazer isso é comparar o valor de
+cada pixel com um limiar pré-definido: se o valor do pixel for igual ou superior ao limiar,
+ele vira branco (v=max), caso contrário ele vira preto (v=0).
+onde N é um limiar real entre 0.0 (0% do valor máximo) e 1.0 (100% do valor máximo).
+Caso o limiar não esteja definido, assume-se que seja 50%.
+
+Para entender como o algoritmo funciona é importante comprreendermos dois conceitos o de pixel e
+vizinhaça de pixel:
+PIXEL
+uma imagem é tratada como uma matriz de pixels;
+um pixel p na coordenada (x,y) está associado a um valor de intensidade V(p)
+correspondente a f(x,y);
+
+
+VIZINHAÇA DE UM PIXEL
+seja p, um pixel nas coordenadas (x,y). A vizinhança de 4 ( ou N4 (p) ) de um pixel é composta 
+por seus vizinhos na horizontal e na vertical, cujas coordenadas são: (x+1,y), (x-1,y), 
+(x,y+1), (x,y-1).
+[FIGURA 1]
+
+A vizinhança diagonal ( ou ND (p) ) de um pixel é constituída por seus vizinhos com coordenadas: 
+(x+1,y+1), (x+1,y-1), (x-1,y+1), (x-1,y-1).
+[FIGURA 2]
+
+A vizinhança de 8 ( ou N8 (p) ) é o conjunto de todos os pixels vizinhos, ou seja: N4
+(p) ND (p).
+[FIGURA 3]
+
+FIGURAS --> [https://imgur.com/a/1TiEHaB]
